@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Recommended Tracks</h1>
+    {% if recommendations %}
+        <ul>
+            {% for track in recommendations %}
+                <li>
+                    <strong>{{ track['track_title'] }}</strong> by {{ track['artist_name'] }} <br>
+                    Album: {{ track['album_title'] }} <br>
+                    Favorites: {{ track['track_favorites'] }} <br>
+                    Listens: {{ track['track_listens'] }} <br>
+                    <a href="{{ track['track_url'] }}" target="_blank">Listen</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations found for your input.</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
